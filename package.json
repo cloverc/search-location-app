@@ -1,0 +1,14 @@
+{
+  "name": "search-location-app",
+  "version": "1.0.0",
+  "description": "Booking.com tech test location search",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Clover Chapman",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
