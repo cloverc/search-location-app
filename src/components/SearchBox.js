@@ -4,9 +4,12 @@ import { render } from 'react-dom';
 const SearchBox = () => {
   return (
     <>
-      <div className="c-searchbox">
-        <label htmlFor="pickup-location">Pick-up Location</label>
+      <div className="">
+        <label htmlFor="pickup-location" className="ui-clyde c-form-label">
+          Pick-up Location
+        </label>
         <input
+          className="ui-clyde"
           type="text"
           id="pickup-location"
           name="pickup-location"

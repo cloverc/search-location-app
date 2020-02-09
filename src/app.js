@@ -4,7 +4,7 @@ import Form from './components/Form';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="search-container">
       <Form />
     </div>
   );

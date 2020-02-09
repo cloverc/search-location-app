@@ -1,11 +1,11 @@
 // main colours
+$greyscale-dark: #333;
 $mustard: #f3ce56;
 $mid-blue: #0a6fba;
 $dark-green: #00874d;
 $white: #fff;
 
 // normalize
-
 html {
   box-sizing: border-box;
 }
@@ -18,71 +18,83 @@ html {
   box-sizing: border-box;
 }
 
-// structure
-$small: 600px !default;
-$medium: 960px !default;
-$large: 1360px !default;
+// media queries
+$small: 480px !default;
+$medium: 768px !default;
+$large: 1024px !default;
 
+@media (min-width: #{$small}) {
+  .c-searchbox {
+    padding: 1.5rem;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: #{$large - 1px}) and (min-width: #{$medium}) {
+  .c-searchbox {
+    width: 512px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: #{$large}) {
+  .c-searchbox {
+    width: 480px;
+  }
+}
+
+//Typography
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu', Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.search-container {
-    height: 250px;
-    display: flex;
-    background-color: #f3ce56;
-    margin-top: 120px;
-    min-width: 500px;
-    align-items: baseline;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 30px;
-    position: relative;
+h1 {
+  font-family: inherit;
+  font-size: 24px;
+  color: $greyscale-dark;
+  font-weight: 500;
+  line-height: 2rem;
+  margin-bottom: 1rem;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.ui-clyde {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
+}
+
+.search-container {
+  direction: ltr;
   text-align: left;
-  justify-content: center;
+  display: block;
   margin-top: 64px;
 }
 
 .c-searchbox {
-  margin: 0;
-  padding: 8px;
+  margin: 0 auto;
+  padding: 1.5rem;
   letter-spacing: -0.4px;
   background-color: $mustard;
+  input {
+    font-weight: 400;
+    line-height: 1.5rem;
+    -webkit-appearance: none;
+    border: 1px solid #a4a4a4;
+    border-radius: 4px;
+    height: 40px;
+    min-width: 49px;
+    padding: 8px 16px;
+    width: 100%;
+    height: 48px;
+    font-size: 1rem;
+    border-color: #c8ae5b;
+  }
 }
 
-.c-searchbox input {
-  font-family: inherit;
-  font-weight: 400;
-  line-height: 1.5rem;
-  -webkit-appearance: none;
-  border: 1px solid #a4a4a4;
-  border-radius: 4px;
-  height: 40px;
-  min-width: 49px;
-  padding: 8px 16px;
-  width: 100%;
-  height: 48px;
-  font-size: 1rem;
-  border-color: #c8ae5b;
-  box-sizing: border-box;
-}
-
-.c-searchbox button {
-  padding: 0.5em 0.75em;
-  color: $white;
-  font-family: inherit;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  background-color: $dark-green;
-  border: 0;
-  border-radius: 5px;
+.c-form-label {
+  display: block;
+  padding: 0 0 4px;
+  color: #444;
 }

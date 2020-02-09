@@ -3,12 +3,10 @@ import SearchBox from './SearchBox';
 
 const Form = () => {
   return (
-    <div className="search-container">
-      <form className="pickup-form">
-        <h2>Let's find your ideal car</h2>
-        <div className="search">
-          <SearchBox />
-        </div>
+    <div className="c-searchbox">
+      <form className="">
+        <h1>Let's find your ideal car</h1>
+        <SearchBox />
       </form>
     </div>
   );
