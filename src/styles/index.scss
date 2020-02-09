@@ -5,7 +5,7 @@ $mid-blue: #0a6fba;
 $dark-green: #00874d;
 $white: #fff;
 
-// normalize
+// mini normalize
 html {
   box-sizing: border-box;
 }
@@ -44,6 +44,7 @@ $large: 1024px !default;
 
 //Typography
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 body {
   font-family: 'Ubuntu', Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -52,17 +53,17 @@ body {
 
 h1 {
   font-family: inherit;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: $greyscale-dark;
-  font-weight: 500;
   line-height: 2rem;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .ui-clyde {
   font-size: 14px;
   font-weight: 400;
-  font-family: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
+  font-family: 'Open Sans', Tahoma, sans-serif;
 }
 
 .search-container {
@@ -90,6 +91,21 @@ h1 {
     height: 48px;
     font-size: 1rem;
     border-color: #c8ae5b;
+    &::-webkit-input-placeholder {
+      font-size: 0.875rem;
+    }
+
+    &::-moz-placeholder {
+      font-size: 0.875rem;
+    }
+
+    &:-ms-input-placeholder {
+      font-size: 0.875rem;
+    }
+    &:focus {
+      border-color: #0f6193;
+      outline: 0;
+    }
   }
 }
 
