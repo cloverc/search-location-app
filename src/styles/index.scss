@@ -130,22 +130,37 @@ h1 {
 }
 
 .item {
-  display: table-row;
   padding: 0.5rem 1rem;
   cursor: pointer;
   display: block;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 0.3s;
   &.item:not(:first-child) {
     border-top: 1px solid #b4b4b4;
   }
 }
 
 .pill-container {
-  display: table-cell;
-  width: 1px;
   padding: 8px 16px;
   color: $white;
+  display: flex;
+  width: 80px;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  height: 15px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 .location-container {
-  display: table-cell;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 30px;
+  width: 80%;
+  justify-content: space-evenly;
 }
