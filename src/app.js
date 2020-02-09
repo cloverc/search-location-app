@@ -1,12 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import SearchBox from './components/SearchBox';
+import Form from './components/Form';
 
 const App = () => {
   return (
     <div className="App">
-      <h2>Let&apos;s find your ideal car</h2>
-      <SearchBox />
+      <Form />
     </div>
   );
 };

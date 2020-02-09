@@ -1,10 +1,10 @@
 import React from 'react';
-//import { render } from 'react-dom';
+import { render } from 'react-dom';
 
 const SearchBox = () => {
   return (
     <>
-      <div>
+      <div className="c-searchbox">
         <label htmlFor="pickup-location">Pick-up Location</label>
         <input
           type="text"
