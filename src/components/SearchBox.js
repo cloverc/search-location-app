@@ -1,7 +1,25 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import SuggestionList from './SuggestionList';
 
 const SearchBox = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [locations, setLocations] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=6&solrTerm=${searchTerm}`,
+      )
+      .then(res => {
+        // console.log(res.data.results.docs);
+        setLocations(res.data.results.docs);
+      })
+      .catch(() => {
+        setLocations([]);
+      });
+  }, [searchTerm]);
+
   return (
     <>
       <div className="">
@@ -15,7 +33,10 @@ const SearchBox = () => {
           name="pickup-location"
           placeholder="city, airport, station, region, district..."
           autoComplete="off"
+          onChange={e => setSearchTerm(e.target.value)}
+          value={searchTerm}
         />
+        {!!locations.length && <SuggestionList locations={locations} />}
       </div>
     </>
   );

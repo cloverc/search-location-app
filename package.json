@@ -4,11 +4,11 @@
   "description": "Booking.com tech test location search",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "start": "parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "test": "jest",
-    "test:watch": "jest --watch",    
+    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
   },
   "author": "Clover Chapman",
@@ -26,13 +26,15 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "jest": "^25.1.0",
-    "react-test-renderer": "^16.3.2",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1",
+    "react-test-renderer": "^16.3.2",
     "sass": "^1.25.0"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
