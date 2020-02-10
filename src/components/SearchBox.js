@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import SuggestionList from './SuggestionList';
 import useDebounce from '../utils/useDebounce';
 import getData from '../utils/getData';
 
 const SearchBox = () => {
-  const myInputRef = useRef();
   const [searchTerm, setSearchTerm] = useState('');
   const [locations, setLocations] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -45,7 +44,6 @@ const SearchBox = () => {
           name="pickup-location"
           placeholder="city, airport, station, region, district..."
           autoComplete="off"
-          ref={myInputRef}
           onChange={handleChange}
           value={searchTerm}
         />
