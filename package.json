@@ -7,12 +7,18 @@
     "start": "parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
   },
   "author": "Clover Chapman",
   "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "axios": "^0.19.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
@@ -33,15 +39,13 @@
     "react-test-renderer": "^16.3.2",
     "sass": "^1.25.0"
   },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
-  },
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
     "setupFiles": [
       "<rootDir>/src/setup.js"
     ]

@@ -9,19 +9,22 @@ const SuggestionList = ({ locations = [] }) => {
         {locations.map((location, i) => (
           <li key={`${i}`} className="item">
             <div
-              className="pill-container"
+              className="ui-clyde c-fts-results__pill-container"
               style={{
                 backgroundColor: getPlaceColour(location.placeType),
               }}
             >
               {getPlaceType(location.placeType)}
             </div>
-            <div className="location-container">
-              {location.name}
-              {location.region && location.country && (
-                <p className="description">
+            <div className="c-fts-results__location-container">
+              <div className="ui-clyde c-fts-results__location-name">{location.name}</div>
+
+              {location.country && location.region ? (
+                <p className="ui-clyde description">
                   {location.region}, {location.country}
                 </p>
+              ) : (
+                <p className="ui-clyde description">{location.country}</p>
               )}
             </div>
           </li>

@@ -3,8 +3,8 @@ const placeTypeMap = {
   C: 'City',
   T: 'Station',
   D: 'District',
-  P: 'Region',
+  I: 'Region',
 };
-const getPlaceType = placeTypeLetter => placeTypeMap[placeTypeLetter] || 'Place';
+const getPlaceType = placeTypeLetter => placeTypeMap[placeTypeLetter] || '';
 
 export default getPlaceType;

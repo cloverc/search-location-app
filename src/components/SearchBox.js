@@ -1,31 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from 'react';
 import SuggestionList from './SuggestionList';
+import useDebounce from '../utils/useDebounce';
+import getData from '../utils/getData';
 
 const SearchBox = () => {
+  const myInputRef = useRef();
   const [searchTerm, setSearchTerm] = useState('');
   const [locations, setLocations] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=6&solrTerm=${searchTerm}`,
-      )
-      .then(res => {
-        // console.log(res.data.results.docs);
-        setLocations(res.data.results.docs);
-      })
-      .catch(() => {
-        setLocations([]);
-      });
-  }, [searchTerm]);
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+
+  useEffect(
+      () => {
+          if (debouncedSearchTerm.length > 1) {
+              setIsSearching(true);
+              getData(debouncedSearchTerm).then(res => {
+                  setIsSearching(true);
+                  setLocations(res.data.results.docs);
+              });
+            } else {
+                setLocations([]);
+            }
+      },
+      [debouncedSearchTerm]
+
+  );
 
   return (
     <>
-      <div className="">
+      <div className="c-searchbox__container">
         <label htmlFor="pickup-location" className="ui-clyde c-form-label">
           Pick-up Location
         </label>
+        <div className="c-form-field__label">
         <input
           className="ui-clyde"
           type="text"
@@ -33,10 +45,12 @@ const SearchBox = () => {
           name="pickup-location"
           placeholder="city, airport, station, region, district..."
           autoComplete="off"
-          onChange={e => setSearchTerm(e.target.value)}
+          ref={myInputRef}
+          onChange={handleChange}
           value={searchTerm}
         />
-        {!!locations.length && <SuggestionList locations={locations} />}
+        {isSearching && <SuggestionList locations={locations} />}
+      </div>
       </div>
     </>
   );
