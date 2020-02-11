@@ -1,13 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import getPlaceType from '../utils/getPlaceType';
 import getPlaceColour from '../utils/getPlaceColour';
 
-const SuggestionList = ({ locations = [] }) => {
+const SuggestionList = ({ searchResults = [] }) => {
   return (
     <div className="search-results">
       <ol className="list">
-        {locations.map((location, i) => (
-          <li key={`${i}`} className="item">
+        {searchResults.map(location => (
+          <li key={`${location.placeKey}`} className="c-search-results__item">
             <div
               className="ui-clyde c-fts-results__pill-container"
               style={{
@@ -32,6 +33,11 @@ const SuggestionList = ({ locations = [] }) => {
       </ol>
     </div>
   );
+};
+
+SuggestionList.propTypes = {
+  searchResults: PropTypes.arrayOf(PropTypes.object),
+  noResults: PropTypes.bool,
 };
 
 export default SuggestionList;

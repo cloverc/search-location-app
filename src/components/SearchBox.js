@@ -5,7 +5,7 @@ import getData from '../utils/getData';
 
 const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [locations, setLocations] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
   const handleChange = event => {
@@ -20,10 +20,10 @@ const SearchBox = () => {
               setIsSearching(true);
               getData(debouncedSearchTerm).then(res => {
                   setIsSearching(true);
-                  setLocations(res.data.results.docs);
+                  setSearchResults(res.data.results.docs);
               });
             } else {
-                setLocations([]);
+                setSearchResults([]);
             }
       },
       [debouncedSearchTerm]
@@ -47,7 +47,7 @@ const SearchBox = () => {
           onChange={handleChange}
           value={searchTerm}
         />
-        {isSearching && <SuggestionList locations={locations} />}
+        {isSearching && <SuggestionList searchResults={searchResults} />}
       </div>
       </div>
     </>

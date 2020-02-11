@@ -6,7 +6,7 @@ import getData from '../src/utils/getData';
 
 const render = () => shallow(<SearchBox />);
 
-// test('should render the snapshot of the SearchWidget component', () => {
+// test('should render the snapshot of the SearchBox component', () => {
 //   expect(render()).toMatchSnapshot();
 // })
 
@@ -17,3 +17,5 @@ it('should render the SearchBox container', () => {
       .exists(),
   ).toEqual(true);
 });
+
+it('does not search when only one character has been typed', () => {});
