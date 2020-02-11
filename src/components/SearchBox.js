@@ -33,7 +33,7 @@ const SearchBox = () => {
   return (
     <>
       <div className="c-searchbox__container">
-        <label htmlFor="pickup-location" className="ui-clyde c-form-label">
+        <label htmlFor="pickup-location" className="ui-clyde c-form__label">
           Pick-up Location
         </label>
         <div className="c-form-field__label">
