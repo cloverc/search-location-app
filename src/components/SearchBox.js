@@ -14,20 +14,17 @@ const SearchBox = () => {
 
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-  useEffect(
-      () => {
-          if (debouncedSearchTerm.length > 1) {
-              setIsSearching(true);
-              getData(debouncedSearchTerm).then(res => {
-                  setIsSearching(true);
-                  setSearchResults(res.data.results.docs);
-              });
-            } else {
-                setSearchResults([]);
-            }
-      },
-      [debouncedSearchTerm]
-  );
+  useEffect(() => {
+    if (debouncedSearchTerm.length > 1) {
+      setIsSearching(true);
+      getData(debouncedSearchTerm).then(res => {
+        setIsSearching(true);
+        setSearchResults(res.data.results.docs);
+      });
+    } else {
+      setSearchResults([]);
+    }
+  }, [debouncedSearchTerm]);
 
   return (
     <>
@@ -36,18 +33,18 @@ const SearchBox = () => {
           Pick-up Location
         </label>
         <div className="c-form-field__label">
-        <input
-          className="ui-clyde"
-          type="text"
-          id="pickup-location"
-          name="pickup-location"
-          placeholder="city, airport, station, region, district..."
-          autoComplete="off"
-          onChange={handleChange}
-          value={searchTerm}
-        />
-        {isSearching && <SuggestionList searchResults={searchResults} />}
-      </div>
+          <input
+            className="ui-clyde"
+            type="text"
+            id="pickup-location"
+            name="pickup-location"
+            placeholder="city, airport, station, region, district..."
+            autoComplete="off"
+            onChange={handleChange}
+            value={searchTerm}
+          />
+          {isSearching && <SuggestionList searchResults={searchResults} />}
+        </div>
       </div>
     </>
   );

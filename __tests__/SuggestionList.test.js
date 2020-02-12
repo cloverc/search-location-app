@@ -21,6 +21,7 @@ import SuggestionList from '../src/components/SuggestionList';
 //   },
 // };
 
+
 it('does not display search result items if no search results are found', () => {
   const searchResults = [];
 

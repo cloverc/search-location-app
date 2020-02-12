@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 import getData from '../src/components/utils/getData';
 
@@ -24,6 +24,24 @@ const mockData = {
   },
 };
 
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
+// const mockData = {
+//   data: {
+//     results: { docs: [{ name: 'Foo' }, { name: 'Bar' }] }
+//   }
+// }
+
+const mockAxios = (data = mockData) => axios.get.mockResolvedValue(data);
+
+test('should set results to an empty array when url is undefined', async () => {
+  const { result } = renderHook(() => getData());
+
+  expect(result.current).toEqual([]);
+});
+
 // const render = (props = mockData) => mount(<DropDown {...props} />);
 
 describe('fetchData', () => {
@@ -32,14 +50,12 @@ describe('fetchData', () => {
 
     axios.get.mockImplementationOnce(() => Promise.resole(mockData));
   });
+
   it('fetches erroneously data from an API', async () => {
     const errorMessage = 'Network Error';
-    axios.get.mockImplementationOnce(() =>
-      Promise.reject(new Error(errorMessage)),
-    );
+    axios.get.mockImplementationOnce(() => Promise.reject(new Error(errorMessage)));
   });
 });
-
 
 // import axios from 'axios';
 // import { fetchData } from './';
