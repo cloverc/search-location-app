@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getPlaceType from '../utils/getPlaceType';
-import getPlaceColour from '../utils/getPlaceColour';
+import PlaceType from '../components/PlaceType';
+
 
 const SuggestionList = ({ searchResults = [] }) => {
   return (
@@ -9,23 +9,16 @@ const SuggestionList = ({ searchResults = [] }) => {
       <ol className="list">
         {searchResults.map(location => (
           <li key={`${location.placeKey}`} className="c-search-results__item">
-            <div
-              className="ui-clyde c-fts-results__pill-container"
-              style={{
-                backgroundColor: getPlaceColour(location.placeType),
-              }}
-            >
-              {getPlaceType(location.placeType)}
-            </div>
+            <PlaceType type={location.placeType} />
             <div className="c-fts-results__location-container">
-              <div className="ui-clyde c-fts-results__location-name">{location.name}</div>
+              <div className="c-fts-results__location-name">{location.name}</div>
 
               {location.country && location.region ? (
-                <p className="ui-clyde description">
+                <p className="description">
                   {location.region}, {location.country}
                 </p>
               ) : (
-                <p className="ui-clyde description">{location.country}</p>
+                <p className="description">{location.country}</p>
               )}
             </div>
           </li>

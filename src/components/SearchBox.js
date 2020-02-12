@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SuggestionList from './SuggestionList';
-import useDebounce from '../utils/useDebounce';
-import getData from '../utils/getData';
+import useDebounce from './utils/useDebounce';
+import getData from './utils/getData';
 
 const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');

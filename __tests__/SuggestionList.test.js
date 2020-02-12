@@ -2,6 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import SuggestionList from '../src/components/SuggestionList';
+// import getPlaceType from '../src/utils/getPlaceType';
+
+// jest.mock('../src/utils/components/getPlaceType');
 
 // const mockData = {
 //   data: {
@@ -17,7 +20,6 @@ import SuggestionList from '../src/components/SuggestionList';
 //     },
 //   },
 // };
-// const wrapper = shallow(<SuggestionList />);
 
 it('does not display search result items if no search results are found', () => {
   const searchResults = [];

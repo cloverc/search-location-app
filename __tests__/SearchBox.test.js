@@ -1,10 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import SearchBox from '../src/components/SearchBox';
-import useDebounce from '../src/utils/useDebounce';
-import getData from '../src/utils/getData';
+import useDebounce from '../src/components/utils/useDebounce';
+import getData from '../src/components/utils/getData';
 
-const wrapper = shallow(<SearchBox />);
+const wrapper = mount(<SearchBox />);
+
+describe('Snapshot Tests', () => {
+  test('should render the snapshot of the SearchBox component', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
+})
 
 describe('SearchBox', () => {
   it('should render the SearchBox container', () => {
@@ -35,7 +41,6 @@ describe('SearchBox', () => {
     );
   });
 })
-
 
 describe('SearchBox Accessibility', () => {
   it('label and input element should be associated', () => {

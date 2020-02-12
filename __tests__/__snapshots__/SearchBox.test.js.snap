@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Tests should render the snapshot of the SearchBox component 1`] = `
+<SearchBox>
+  <div
+    className="c-searchbox__container"
+  >
+    <label
+      className="ui-clyde c-form__label"
+      htmlFor="pickup-location"
+    >
+      Pick-up Location
+    </label>
+    <div
+      className="c-form-field__label"
+    >
+      <input
+        autoComplete="off"
+        className="ui-clyde"
+        id="pickup-location"
+        name="pickup-location"
+        onChange={[Function]}
+        placeholder="city, airport, station, region, district..."
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</SearchBox>
+`;

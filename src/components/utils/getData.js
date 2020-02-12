@@ -7,7 +7,6 @@ const getData = searchTerm => {
       `https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=6&solrTerm=${searchTerm}`,
     )
     .then(res => {
-      // console.log(res.data.results.docs);
       return res;
     })
     .catch(err => {
