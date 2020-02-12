@@ -27,7 +27,6 @@ const SearchBox = () => {
             }
       },
       [debouncedSearchTerm]
-
   );
 
   return (
