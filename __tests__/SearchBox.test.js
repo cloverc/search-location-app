@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import SearchBox from '../src/components/SearchBox';
 import useDebounce from '../src/components/utils/useDebounce';
-import getData from '../src/components/utils/getData';
+import useFetch from '../src/components/utils/useFetch';
 
 const wrapper = mount(<SearchBox />);
 

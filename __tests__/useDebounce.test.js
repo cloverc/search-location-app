@@ -19,7 +19,7 @@ it('should return the expected search term after timeout', async () => {
   
   advanceTimer()
 
-  expect(result.current).toEqual('Man')
+  expect(result.current).toEqual('https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=6&solrTerm=Man')
   
   searchTerm = 'Manchester'
   
@@ -37,7 +37,7 @@ it('should return expected search term before timeout', async () => {
   
   advanceTimer(300)
 
-  expect(result.current).toEqual('Man')
+  expect(result.current).toEqual('https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=6&solrTerm=Man')
   
   searchTerm = 'Manchester'
   
@@ -45,7 +45,7 @@ it('should return expected search term before timeout', async () => {
   
   advanceTimer(300)
 
-  expect(result.current).toEqual('Man')
+  expect(result.current).toEqual('https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=6&solrTerm=Man')
 })
 
 it('should call the setTimeout function', async () => {

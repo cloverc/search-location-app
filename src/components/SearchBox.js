@@ -1,30 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SuggestionList from './SuggestionList';
 import useDebounce from './utils/useDebounce';
-import getData from './utils/getData';
+import useFetch from './utils/useFetch';
 
 const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [isSearching, setIsSearching] = useState(false);
 
   const handleChange = event => {
     setSearchTerm(event.target.value);
   };
 
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const { isSearching, searchResults } = useFetch(debouncedSearchTerm)
 
-  useEffect(() => {
-    if (debouncedSearchTerm.length > 1) {
-      setIsSearching(true);
-      getData(debouncedSearchTerm).then(res => {
-        setIsSearching(true);
-        setSearchResults(res.data.results.docs);
-      });
-    } else {
-      setSearchResults([]);
-    }
-  }, [debouncedSearchTerm]);
+  // useEffect(() => {
+  //   if (debouncedSearchTerm.length > 1) {
+  //     setIsSearching(true);
+  //     getData(debouncedSearchTerm).then(res => {
+  //       setIsSearching(true);
+  //       setSearchResults(res.data.results.docs);
+  //     });
+  //   } else {
+  //     setSearchResults([]);
+  //   }
+  // }, [debouncedSearchTerm]);
+
+  console.log(searchResults);
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useDebounce(searchTerm, delay) {
+const useDebounce = (searchTerm, delay) => {
 
   const [debouncedValue, setDebouncedValue] = useState(searchTerm);
 
@@ -17,5 +17,7 @@ export default function useDebounce(searchTerm, delay) {
     [searchTerm] 
   );
 
-  return debouncedValue;
+  return (debouncedValue && debouncedValue.length > 1) ? `https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=6&solrTerm=${debouncedValue}` : '';
 }
+
+export default useDebounce;

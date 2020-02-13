@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import PlaceType from '../src/components/PlaceType';
 
 const mockProps = {
-  placetype: 'foo',
+  placetype: 'City',
 };
 
 const render = (props = mockProps) => mount(<PlaceType {...props} />);
