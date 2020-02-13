@@ -1,5 +1,4 @@
 import { renderHook, act } from '@testing-library/react-hooks'
-
 import useDebounce from '../src/components/utils/useDebounce'
 
 beforeEach(() => {
@@ -33,6 +32,6 @@ it('should return the expected search term after timeout', async () => {
 it('should call the setTimeout function', async () => {
   await act(async () => renderHook(() => useDebounce('Manchester', 500)))
 
-  expect(setTimeout).toHaveBeenCalledTimes(2)
+  expect(setTimeout).toHaveBeenCalledTimes(1)
   expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 500)
 })

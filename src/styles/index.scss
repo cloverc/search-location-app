@@ -36,6 +36,7 @@ $large: 1024px !default;
     margin: 0 auto;
   }
 }
+
 @media (min-width: #{$large}) {
   .c-searchbox {
     width: 480px;
