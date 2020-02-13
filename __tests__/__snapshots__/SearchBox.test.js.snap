@@ -24,6 +24,17 @@ exports[`Snapshot Tests should render the snapshot of the SearchBox component 1`
         type="text"
         value=""
       />
+      <SuggestionList
+        searchResults={Array []}
+      >
+        <div
+          className="search-results"
+        >
+          <ol
+            className="list"
+          />
+        </div>
+      </SuggestionList>
     </div>
   </div>
 </SearchBox>

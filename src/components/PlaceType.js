@@ -8,6 +8,8 @@ const getPlaceType = value => {
     T: 'Station',
     D: 'District',
     I: 'Region',
+    F: 'Region',
+    G: 'Place',
   };
   return placeTypeMap[value] || '';
 };

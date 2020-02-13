@@ -6,17 +6,17 @@ const SuggestionList = ({ searchResults }) =>
   searchResults ? (
     <div className="search-results">
       <ol className="list">
-        {searchResults.map(location => (
-          <li key={`${location.placeKey}`} className="c-search-results__item">
-            <PlaceType placetype={location.placeType} />
-            <div className="c-fts-results__location-container">
-              <div>{location.name}</div>
-              {location.country && location.region ? (
+        {searchResults.map(result => (
+          <li key={`${result.placeKey}`} className="c-search-results__item">
+            <PlaceType placetype={result.placeType} />
+            <div className="c-fts-results__result-container">
+              <div>{result.name}</div>
+              {result.country && result.region ? (
                 <p className="description">
-                  {location.region}, {location.country}
+                  {result.region}, {result.country}
                 </p>
               ) : (
-                <p className="description">{location.country}</p>
+                <p className="description">{result.country}</p>
               )}
             </div>
           </li>

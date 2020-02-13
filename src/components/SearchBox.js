@@ -13,20 +13,6 @@ const SearchBox = () => {
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { isSearching, searchResults } = useFetch(debouncedSearchTerm)
 
-  // useEffect(() => {
-  //   if (debouncedSearchTerm.length > 1) {
-  //     setIsSearching(true);
-  //     getData(debouncedSearchTerm).then(res => {
-  //       setIsSearching(true);
-  //       setSearchResults(res.data.results.docs);
-  //     });
-  //   } else {
-  //     setSearchResults([]);
-  //   }
-  // }, [debouncedSearchTerm]);
-
-  console.log(searchResults);
-
   return (
     <>
       <div className="c-searchbox__container">

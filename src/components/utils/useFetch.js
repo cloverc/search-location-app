@@ -5,20 +5,23 @@ const useFetch = (searchURL) => {
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(true);
   useEffect(() => {
-    const fetchData = async function() {
-      try {
-        setIsSearching(true);
-        const response = await axios.get(searchURL);
-        if (response.status === 200) {
-            setSearchResults(response.data.results.docs);
+    if (searchURL) {
+        const fetchData = async function() {
+        try {
+            setIsSearching(true);
+            const response = await axios.get(searchURL);
+            if (response.status === 200) {
+                setSearchResults(response.data.results.docs);
+            }
+        } catch (error) {
+            throw error;
+        } finally {
+            setIsSearching(true);
         }
-      } catch (error) {
-        throw error;
-      } finally {
-        setIsSearching(true);
-      }
-    };
-    fetchData();
+        
+        };
+        fetchData();
+    } else setSearchResults([])
   }, [searchURL]);
   return { isSearching, searchResults };
 };
