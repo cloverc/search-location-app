@@ -5,7 +5,7 @@ import SearchBox from '../src/components/SearchBox';
 const wrapper = mount(<SearchBox />);
 
 describe('Snapshot Tests', () => {
-  test('should render the snapshot of the SearchBox component', () => {
+  it('should render the snapshot of the SearchBox component', () => {
     expect(wrapper).toMatchSnapshot();
   })
 })
